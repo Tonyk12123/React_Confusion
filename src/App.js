@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter } from 'react-router-dom';
 // import { Navbar, NavbarBrand } from 'reactstrap';
 import React, { Component } from 'react';
 // import Menu from './components/MenuComponent';
@@ -25,9 +26,11 @@ class App extends Component {
       //   {/* <Menu /> */}
       //   <Menu dishes={this.state.dishes} />
       // </div>
-      <div className="App">
-        <Main />
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Main />
+        </div>
+      </BrowserRouter>
     );
   }
 }
