@@ -11,6 +11,8 @@ import Contact from './ContactComponent';
 import { COMMENTS } from '../shared/comments';
 import { PROMOTIONS } from '../shared/promotions';
 import { LEADERS } from '../shared/leaders';
+import { connect } from 'react-redux';
+
 
 class Main extends Component {
 
@@ -48,6 +50,7 @@ class Main extends Component {
             );
         };
 
+       
 
         return (
             <div>
@@ -71,7 +74,15 @@ class Main extends Component {
                 <Footer />
             </div>
         );
+       
     }
 }
-
-export default Main;
+function mapStateToProps (state) {
+    return {
+        dishes: state.dishes,
+        comments: state.comments,
+        promotions: state.promotions,
+        leaders: state.leaders
+    }
+}
+export default connect(mapStateToProps)(Main);
