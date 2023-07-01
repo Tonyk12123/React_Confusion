@@ -7,6 +7,7 @@ import {
     CardTitle, Breadcrumb, BreadcrumbItem
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import CommentForm from './CommentForm';
 import { Loading } from './LoadingComponent';
 // class DishDetail extends Component {
 //     constructor(props) {
@@ -117,7 +118,7 @@ function RenderComments({ comments, addComment, dishId }) {
             <h4> Comments </h4>
             <ul className='list-unstyled'>
                 {showcmnts}
-                {/* <CommentForm dishId={dishId} addComment={addComment} /> */}
+                <CommentForm dishId={dishId} addComment={addComment} />
             </ul>
         </div>
     );
