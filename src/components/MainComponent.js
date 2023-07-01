@@ -16,16 +16,16 @@ import { connect } from 'react-redux';
 
 class Main extends Component {
 
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         dishes: DISHES,
-    //         comments: COMMENTS,
-    //         promotions: PROMOTIONS,
-    //         leaders: LEADERS
-    //         // selectedDish: null
-    //     };
-    // }
+    constructor(props) {
+        super(props);
+        // this.state = {
+        //     dishes: DISHES,
+        //     comments: COMMENTS,
+        //     promotions: PROMOTIONS,
+        //     leaders: LEADERS
+        //     // selectedDish: null
+        // };
+    }
 
     // onDishSelect(dishId) {
     //     this.setState({ selectedDish: dishId });
