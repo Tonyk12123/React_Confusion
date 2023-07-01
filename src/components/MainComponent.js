@@ -16,16 +16,16 @@ import { connect } from 'react-redux';
 
 class Main extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            dishes: DISHES,
-            comments: COMMENTS,
-            promotions: PROMOTIONS,
-            leaders: LEADERS
-            // selectedDish: null
-        };
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         dishes: DISHES,
+    //         comments: COMMENTS,
+    //         promotions: PROMOTIONS,
+    //         leaders: LEADERS
+    //         // selectedDish: null
+    //     };
+    // }
 
     // onDishSelect(dishId) {
     //     this.setState({ selectedDish: dishId });
@@ -35,9 +35,9 @@ class Main extends Component {
         const HomePage = () => {
             return (
                 <Home
-                    dish={this.state.dishes.filter((dish) => dish.featured)[0]}
-                    promotion={this.state.promotions.filter((promo) => promo.featured)[0]}
-                    leader={this.state.leaders.filter((leader) => leader.featured)[0]}
+                    dish={this.props.dishes.filter((dish) => dish.featured)[0]}
+                    promotion={this.props.promotions.filter((promo) => promo.featured)[0]}
+                    leader={this.props.leaders.filter((leader) => leader.featured)[0]}
 
                 />
             );
@@ -45,12 +45,12 @@ class Main extends Component {
         const DishWithId = () => {
             const { dishId } = useParams();
             return (
-                <DishDetail dish={this.state.dishes.filter((dish) => dish.id === parseInt(dishId, 10))[0]}
-                    comments={this.state.comments.filter((comment) => comment.dishId === parseInt(dishId, 10))} />
+                <DishDetail dish={this.props.dishes.filter((dish) => dish.id === parseInt(dishId, 10))[0]}
+                    comments={this.props.comments.filter((comment) => comment.dishId === parseInt(dishId, 10))} />
             );
         };
 
-       
+
 
         return (
             <div>
@@ -64,7 +64,7 @@ class Main extends Component {
                 <Routes>
                     <Route path='/home' Component={HomePage} />
                     {/* <Route exact path='/menu' component={() => <Menu dishes={this.state.dishes} />} /> */}
-                    <Route exact path='/menu' element={<Menu dishes={this.state.dishes} onClick={(dishId) => this.onDishSelect(dishId)} />} />
+                    <Route exact path='/menu' element={<Menu dishes={this.props.dishes} onClick={(dishId) => this.onDishSelect(dishId)} />} />
                     {/* <Route to="/home" /> */}
                     <Route path="/" element={<Navigate to="/home" />} />
                     <Route exact path='/contactus' Component={Contact} />
@@ -74,10 +74,10 @@ class Main extends Component {
                 <Footer />
             </div>
         );
-       
+
     }
 }
-function mapStateToProps (state) {
+function mapStateToProps(state) {
     return {
         dishes: state.dishes,
         comments: state.comments,
